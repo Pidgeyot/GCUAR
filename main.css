@@ -39,8 +39,12 @@ h1, h2, h3, h4, h5, p{
 button {
     margin: .4em;
     font-size: 1em;
+}
+
+#ar-open {
     width: 10%;
 }
+
 ul {
     width:75%;
     text-align: center;
