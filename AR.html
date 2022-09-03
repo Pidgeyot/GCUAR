@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<!--
+GCU AR Tour
+Made by Paige Mabbitt
+September 2nd, 2022
+-->
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="main.css">
+    <script type='text/javascript' src='script.js'></script>
+    <title>GCU AR Tour</title>
+</head>
+<body>
+    <div id="debug">AR is currently unavailable</div>
+
+    <div class="AR">
+
+        <!-- This will contain the THREE.js and AR.js camera and renderer for AR marker usage -->
+
+    </div>
+
+    <!-- The overlay -->
+    <div id="nav" class="overlay">
+
+        <!-- Overlay content -->
+        <nav class="overlay-content">
+            <a href="tutorial.html">How It Works</a>
+            <a href="checklist.html">Checklist</a>
+            <a href="https://www.gcu.edu/">GCU School Site</a>
+        </nav>
+
+        <!-- Button to close the overlay navigation -->
+        <button type="button" href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</button>
+
+    </div>
+
+    <footer>
+        <!-- Button to open the overlay navigation -->
+        <button type="button" onclick="openNav()" id="ar-open">&#9776;</button>
+    </footer>
+
+</body>
+</html>
