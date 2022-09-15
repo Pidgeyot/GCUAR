@@ -7,32 +7,39 @@ September 2nd, 2022
 <html lang="en">
 <head>
     <meta charset="utf-8" />
+    <link rel="icon" type="image/x-icon" href="lopespatt.png">
     <link rel="stylesheet" href="main.css">
-    <script type='text/javascript' src='script.js'></script>
+    <script type='text/javascript' src='js/overlay.js'></script>
     <!-- include three.js library -->
-    <script src='three.js'></script>
+    <script src='js/three.js'></script>
     <!-- include jsartookit -->
-    <script src="artoolkit.min.js"></script>
-    <script src="artoolkit.api.js"></script>
-    <!-- include threex.artoolkit -->
-    <script src="threex-artoolkitsource.js"></script>
-    <script src="threex-artoolkitcontext.js"></script>
-    <script src="threex-arbasecontrols.js"></script>
-    <script src="threex-armarkercontrols.js"></script>
+    <script src="js/artoolkit.min.js"></script>
+    <script src="js/artoolkit.api.js"></script>
+    <!-- include threex.artoolkit-->
+    <script src="js/threex-artoolkitsource.js"></script>
+    <script src="js/threex-artoolkitcontext.js"></script>
+    <script src="js/threex-arbasecontrols.js"></script>
+    <script src="js/threex-armarkercontrols.js"></script>
 
     <title>GCU AR Tour</title>
 </head>
+
 <body>
+
     <div id="debug">AR</div>
-
+    <!--!! FIX: camera currently is over open overlay button!!-->
     <div class="AR">
-        <!--Videos, need one for each vid?-->
-        <iframe id="video1" src="https://youtu.be/Nez7U2L7v2k?autoplay=1" crossOrigin="anonymous" webkit-playsinline style="display:none">
-        </iframe>
+        <video id="video" autoplay loop crossOrigin="anonymous" webkit-playsinline style="display:none">
+            <source src="assets/testvid.mp4" type='video/mp4;'>
+        </video>
 
-        <!-- This will contain the THREE.js and AR.js camera and renderer for AR marker usage -->
-        <script>
+        <!--
+      Example created by Lee Stemkoski: https://github.com/stemkoski
+      Based on the AR.js library and examples created by Jerome Etienne: https://github.com/jeromeetienne/AR.js/
+    -->
 
+        <script type="module">
+           
             var scene, camera, renderer, clock, deltaTime, totalTime;
 
             var arToolkitSource, arToolkitContext;
@@ -45,6 +52,7 @@ September 2nd, 2022
             animate();
 
             function initialize() {
+             
                 scene = new THREE.Scene();
 
                 let ambientLight = new THREE.AmbientLight(0xcccccc, 0.5);
@@ -112,16 +120,18 @@ September 2nd, 2022
                 // setup markerRoots
                 ////////////////////////////////////////////////////////////
 
-                // build markerControls  !! marker control needed for each marker inputed?? !!
+                // build markerControls
                 markerRoot1 = new THREE.Group();
                 scene.add(markerRoot1);
                 let markerControls1 = new THREEx.ArMarkerControls(arToolkitContext, markerRoot1, {
-                    type: 'pattern', patternUrl: "hiro.patt",
+                    //SET PATTERN
+                    type: 'pattern', patternUrl: "assets/lopes.patt",
                 })
 
                 let geometry1 = new THREE.PlaneBufferGeometry(2, 2, 4, 4);
 
-                let video = document.getElementById('video1');
+                //eventually, put this into a if statmenet to a. switch video and b. only play while marker is present
+                let video = document.getElementById('video');
                 let texture = new THREE.VideoTexture(video);
                 texture.minFilter = THREE.LinearFilter;
                 texture.magFilter = THREE.LinearFilter;
@@ -156,10 +166,10 @@ September 2nd, 2022
             }
 
         </script>
-
     </div>
 
-    <!-- The overlay -->
+    <!-- Overlay pulled from W3Schools https://www.w3schools.com/howto/howto_css_overlay.asp -->
+    <!-- The overlay-->
     <div id="nav" class="overlay">
 
         <!-- Overlay content -->

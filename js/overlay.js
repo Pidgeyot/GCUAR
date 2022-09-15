@@ -1,8 +1,6 @@
-/*
-GCU AR Tour
-Made by Paige Mabbitt
-September 2nd, 2022
-*/
+// JavaScript source code
+//Code from W3Schools Overlay Tutorial
+
 
 /* Open */
 function openNav() {

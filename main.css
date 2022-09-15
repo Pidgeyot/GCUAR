@@ -67,6 +67,7 @@ li{
     top: 0;
     background-color: rgb(0,0,0); /* Black fallback color */
     background-color: rgba(0,0,0, 0.6); /* Black w/opacity */
+    z-index: -1;
     
 }
 
@@ -144,4 +145,9 @@ li{
         position: fixed;
         top: 75%;
     }
+}
+
+/*AR Styles*/
+.AR{
+    z-index: -1;
 }

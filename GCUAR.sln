@@ -5,28 +5,45 @@ VisualStudioVersion = 16.0.30621.155
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{34BB4C76-8B91-4835-ADF2-6F0327840CFF}"
 	ProjectSection(SolutionItems) = preProject
-		AR.html = AR.html
-		artoolkit.api.js = artoolkit.api.js
-		artoolkit.min.js = artoolkit.min.js
 		camera_para.dat = camera_para.dat
-		checklist.html = checklist.html
-		hiro.patt = hiro.patt
-		index.html = index.html
 		main.css = main.css
-		script.js = script.js
-		test.html = test.html
+		testvid.mp4 = testvid.mp4
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "js", "js", "{2E314244-4379-4B86-8D04-6D7278D51BBA}"
+	ProjectSection(SolutionItems) = preProject
+		overlay.js = overlay.js
 		three.js = three.js
-		threex-arbasecontrols.js = threex-arbasecontrols.js
-		threex-armarkercontrols.js = threex-armarkercontrols.js
-		threex-artoolkitcontext.js = threex-artoolkitcontext.js
-		threex-artoolkitsource.js = threex-artoolkitsource.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "hmtl", "hmtl", "{100AAD41-5444-41D8-BD6F-B1A08BBE2D77}"
+	ProjectSection(SolutionItems) = preProject
+		AR.html = AR.html
+		checklist.html = checklist.html
+		index.html = index.html
+		test.html = test.html
 		tutorial.html = tutorial.html
 		welcome.html = welcome.html
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "assets", "assets", "{C77B4653-70D7-42C6-9448-B3D0E6980B2B}"
+	ProjectSection(SolutionItems) = preProject
+		hiro.patt = hiro.patt
+		lopes.patt = lopes.patt
+		lopespatt.fset = lopespatt.fset
+		lopespatt.fset3 = lopespatt.fset3
+		lopespatt.iset = lopespatt.iset
+		lopespatt.png = lopespatt.png
 	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2E314244-4379-4B86-8D04-6D7278D51BBA} = {34BB4C76-8B91-4835-ADF2-6F0327840CFF}
+		{100AAD41-5444-41D8-BD6F-B1A08BBE2D77} = {34BB4C76-8B91-4835-ADF2-6F0327840CFF}
+		{C77B4653-70D7-42C6-9448-B3D0E6980B2B} = {34BB4C76-8B91-4835-ADF2-6F0327840CFF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6E3CE536-C1E8-4FB2-B7EB-A389605BA896}
