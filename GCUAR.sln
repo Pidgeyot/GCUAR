@@ -7,7 +7,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		camera_para.dat = camera_para.dat
 		main.css = main.css
-		testvid.mp4 = testvid.mp4
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "js", "js", "{2E314244-4379-4B86-8D04-6D7278D51BBA}"
@@ -19,9 +18,11 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "hmtl", "hmtl", "{100AAD41-5444-41D8-BD6F-B1A08BBE2D77}"
 	ProjectSection(SolutionItems) = preProject
 		AR.html = AR.html
+		ARAFRAME.html = ARAFRAME.html
+		ARVIDEO.html = ARVIDEO.html
 		checklist.html = checklist.html
 		index.html = index.html
-		test.html = test.html
+		THREEJS.html = THREEJS.html
 		tutorial.html = tutorial.html
 		welcome.html = welcome.html
 	EndProjectSection
@@ -34,6 +35,20 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "assets", "assets", "{C77B46
 		lopespatt.fset3 = lopespatt.fset3
 		lopespatt.iset = lopespatt.iset
 		lopespatt.png = lopespatt.png
+		testvid.mp4 = testvid.mp4
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "antelope", "antelope", "{01B104ED-67EF-4296-8A69-9B1E6D0C475B}"
+	ProjectSection(SolutionItems) = preProject
+		paula_the_antelope\antelope.gltf = paula_the_antelope\antelope.gltf
+		paula_the_antelope\license.txt = paula_the_antelope\license.txt
+		paula_the_antelope\scene.bin = paula_the_antelope\scene.bin
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "textures", "textures", "{73F0B586-18C0-46B3-9CF0-1744283D7B5F}"
+	ProjectSection(SolutionItems) = preProject
+		paula_the_antelope\textures\Default_Material_baseColor.png = paula_the_antelope\textures\Default_Material_baseColor.png
+		paula_the_antelope\textures\Default_Material_metallicRoughness.png = paula_the_antelope\textures\Default_Material_metallicRoughness.png
 	EndProjectSection
 EndProject
 Global
@@ -44,6 +59,8 @@ Global
 		{2E314244-4379-4B86-8D04-6D7278D51BBA} = {34BB4C76-8B91-4835-ADF2-6F0327840CFF}
 		{100AAD41-5444-41D8-BD6F-B1A08BBE2D77} = {34BB4C76-8B91-4835-ADF2-6F0327840CFF}
 		{C77B4653-70D7-42C6-9448-B3D0E6980B2B} = {34BB4C76-8B91-4835-ADF2-6F0327840CFF}
+		{01B104ED-67EF-4296-8A69-9B1E6D0C475B} = {34BB4C76-8B91-4835-ADF2-6F0327840CFF}
+		{73F0B586-18C0-46B3-9CF0-1744283D7B5F} = {01B104ED-67EF-4296-8A69-9B1E6D0C475B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6E3CE536-C1E8-4FB2-B7EB-A389605BA896}

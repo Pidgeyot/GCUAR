@@ -1,0 +1,11 @@
+Model Information:
+* title:	Paula the Antelope
+* source:	https://sketchfab.com/3d-models/paula-the-antelope-a08d208d9ad74d41b35efe309c61aefd
+* author:	Diana Varro (https://sketchfab.com/Eurypterus)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Paula the Antelope" (https://sketchfab.com/3d-models/paula-the-antelope-a08d208d9ad74d41b35efe309c61aefd) by Diana Varro (https://sketchfab.com/Eurypterus) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
