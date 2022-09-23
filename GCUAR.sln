@@ -18,8 +18,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "hmtl", "hmtl", "{100AAD41-5444-41D8-BD6F-B1A08BBE2D77}"
 	ProjectSection(SolutionItems) = preProject
 		AR.html = AR.html
-		ARAFRAME.html = ARAFRAME.html
-		ARVIDEO.html = ARVIDEO.html
 		checklist.html = checklist.html
 		index.html = index.html
 		tutorial.html = tutorial.html
@@ -37,7 +35,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "assets", "assets", "{C77B46
 		lopespatt.fset3 = lopespatt.fset3
 		lopespatt.iset = lopespatt.iset
 		lopespatt.png = lopespatt.png
-		testvid.mp4 = testvid.mp4
+		assets\test2.mp4 = assets\test2.mp4
+		assets\testvid.mp4 = assets\testvid.mp4
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "antelope", "antelope", "{01B104ED-67EF-4296-8A69-9B1E6D0C475B}"
