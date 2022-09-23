@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30621.155
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{34BB4C76-8B91-4835-ADF2-6F0327840CFF}"
 	ProjectSection(SolutionItems) = preProject
@@ -22,13 +22,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "hmtl", "hmtl", "{100AAD41-5
 		ARVIDEO.html = ARVIDEO.html
 		checklist.html = checklist.html
 		index.html = index.html
-		THREEJS.html = THREEJS.html
 		tutorial.html = tutorial.html
 		welcome.html = welcome.html
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "assets", "assets", "{C77B4653-70D7-42C6-9448-B3D0E6980B2B}"
 	ProjectSection(SolutionItems) = preProject
+		assets\hiro.fset = assets\hiro.fset
+		assets\hiro.fset3 = assets\hiro.fset3
+		assets\hiro.iset = assets\hiro.iset
 		hiro.patt = hiro.patt
 		lopes.patt = lopes.patt
 		lopespatt.fset = lopespatt.fset

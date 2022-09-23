@@ -3,11 +3,9 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title></title>
-
+    <title>AR Video: Image Tracking</title>
+    <link rel="stylesheet" href="main.css">
     <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
-
-    <!--<script src='https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js'></script>-->
     <script src='https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js'></script>
     <!--Using AR.js tutorial: Displays video using image tracking-->
 
@@ -27,32 +25,11 @@
                         this.vid.pause();
                         this.vid.currentTime = 0;
                     }
-                    .bind(this));
+                      .bind(this));
                 }
             });
         };
     </script>
-
-    <style>
-        .arjs-loader {
-            height: 100%;
-            width: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            background-color: rgba(0, 0, 0, 0.8);
-            z-index: 9999;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-            .arjs-loader div {
-                text-align: center;
-                font-size: 1.25em;
-                color: white;
-            }
-    </style>
 </head>
 
 <body style='margin : 0px; overflow: hidden;'>
@@ -65,13 +42,18 @@
              renderer='antialias: true; alpha: true; precision: medium;'
              embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;'>
 
+        <!--Declare assets here: can be differentiated by ID-->
         <a-assets>
-            <!--the issue, once again: video either doesn't play or is constantly playing-->
+            <!--the issue, once again: video either doesn't play (muted) or is constantly playing (un-muted)-->
             <video src="assets/testvid.mp4"
-                   preload="auto" id="vid" response-type="arraybuffer" loop webkit-playsinline autoplay muted playsinline>
+                   preload="auto"
+                   id="vid"
+                   response-type="arraybuffer"
+                   loop webkit-playsinline autoplay muted playsinline>
             </video>
         </a-assets>
 
+        <!--Set up pattern and corresponding content here: Use video ID for identification-->
         <a-nft videohandler
                type='nft' url='assets/lopespatt'
                smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5">
@@ -82,6 +64,21 @@
                      height='175'>
             </a-video>
         </a-nft>
+
+        <a-nft type="nft"
+               url="assets/hiro"
+               smooth="true"
+               smoothCount="10"
+               smoothTolerance=".01"
+               smoothThreshold="5">
+
+            <a-entity gltf-model="antelope/antelope.gltf"
+                      scale="100 100 100"
+                      position="200 200 100">
+                <!--"Paula the Antelope" (https://skfb.ly/6B9pO) by Diana Varro is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).-->
+            </a-entity>
+        </a-nft>
+
         <a-entity camera></a-entity>
     </a-scene>
 </body>
