@@ -26,17 +26,27 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "hmtl", "hmtl", "{100AAD41-5
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "assets", "assets", "{C77B4653-70D7-42C6-9448-B3D0E6980B2B}"
 	ProjectSection(SolutionItems) = preProject
+		assets\3D_Printer.fset = assets\3D_Printer.fset
+		assets\3D_Printer.fset3 = assets\3D_Printer.fset3
+		assets\3D_Printer.iset = assets\3D_Printer.iset
 		assets\hiro.fset = assets\hiro.fset
 		assets\hiro.fset3 = assets\hiro.fset3
 		assets\hiro.iset = assets\hiro.iset
 		hiro.patt = hiro.patt
+		assets\imagetest.fset = assets\imagetest.fset
+		assets\imagetest.fset3 = assets\imagetest.fset3
+		assets\imagetest.iset = assets\imagetest.iset
+		assets\logo.fset = assets\logo.fset
+		assets\logo.fset3 = assets\logo.fset3
+		assets\logo.iset = assets\logo.iset
 		lopes.patt = lopes.patt
 		lopespatt.fset = lopespatt.fset
 		lopespatt.fset3 = lopespatt.fset3
 		lopespatt.iset = lopespatt.iset
 		lopespatt.png = lopespatt.png
-		assets\test2.mp4 = assets\test2.mp4
-		assets\testvid.mp4 = assets\testvid.mp4
+		assets\shirt.fset = assets\shirt.fset
+		assets\shirt.fset3 = assets\shirt.fset3
+		assets\shirt.iset = assets\shirt.iset
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "antelope", "antelope", "{01B104ED-67EF-4296-8A69-9B1E6D0C475B}"
