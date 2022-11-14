@@ -1,18 +1,89 @@
 ﻿<!doctype HTML>
 <html>
-<link rel="icon" href="data:;base64,iVBORw0KGgo=">
-<script src="js/aframe.min.js"></script>
-<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+<head>
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <script src="js/aframe.min.js"></script>
+</head>
 <body style="margin: 0px; overflow: hidden;">
 
+    <!--Using AR.js tutorial: Displays video using image tracking-->
+    <script>
+
+        //this section makes the video play once the marker is found\
+
+        //register the function to videohandler and initialize the function
+        AFRAME.registerComponent('videohandler', {
+            init: function playvideo() {
+                //set marker to this.element
+                var marker = this.el;
+                //get the src of the a-video (classed as content)
+                var tag = marker.querySelector(".content").getAttribute('src');
+                //this.vid is equal to the element with the id of var tag
+                this.vid = document.querySelector(tag);
+
+                //add listener event to the marker: video is played when its found
+                marker.addEventListener('markerFound', function () {
+                    this.vid.play();
+                }.bind(this));
+
+                //add listener event to the marker: video is stopped and reset when its lost
+                marker.addEventListener('markerLost', function () {
+                    this.vid.pause();
+                    this.vid.currentTime = 0;
+                }.bind(this));
+            }
+        });
+        //load script on window load
+        window.addEventListener("load", playvideo());
+
+    </script>
+
     <!-- set detectionMode and matrixCodeType to enable barcode marker detection and custom pattern files -->
+    <!--<a-scene embedded vr-mode-ui="enabled: false;" arjs="debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">-->
+    <a-scene vr-mode-ui="enabled: false;"
+             renderer='antialias: true; alpha: true; precision: medium;'
+             embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
 
-    <a-scene embedded vr-mode-ui="enabled: false;" arjs="debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
+        <!--Declare assets here: differentiated by ID-->
+        <a-assets>
+            <video src="https://player.vimeo.com/external/427115247.hd.mp4?s=568deebe927fe2ac1adc35cb876d65632663a380&profile_id=174" preload="auto" id="vid1" response-type="arraybuffer" loop webkit-playsinline playsinline crossorigin="anonymous">
+            </video>
 
-        <a-marker type="pattern" url="assets/oldPatterns/hiro.patt">
-            <a-box position="0 0.5 0"
+            <video src="https://player.vimeo.com/external/427115322.hd.mp4?s=94c25ae525c46f97e670386175b6aee0ecc03f8f&profile_id=174" preload="auto" id="vid2" response-type="arraybuffer" loop webkit-playsinline playsinline crossorigin="anonymous">
+            </video>
+        </a-assets>
+
+        <a-marker videohandler type="pattern" url="assets/oldPatterns/hiro.patt">
+            <!--<a-box position="0 0.5 0"
                    material="color: red; transparent: true; opacity: 0.50;">
-            </a-box>
+            </a-box>-->
+
+            <a-video src="#vid1"
+                     class="content"
+                     scale=".1 .1 .1"
+                     position='0 0 0'
+                     rotation='90 0 180'
+                     width='10'
+                     height='5'>
+            </a-video>
+
+        </a-marker>
+
+        <a-marker videohandler type="pattern" url="assets/lopes.patt">
+            <!--<a-box position="0 0.5 0"
+                   material="color: red; transparent: true; opacity: 0.50;">
+            </a-box>-->
+            <a-video src="#vid2"
+                     class="content"
+                     scale=".1 .1 .1"
+                     position='0 0 0'
+                     rotation='90 0 180'
+                     width='10'
+                     height='5'>
+            </a-video>
+
         </a-marker>
 
         <a-entity camera></a-entity>

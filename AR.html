@@ -11,7 +11,9 @@ September 2nd, 2022
     <link rel="stylesheet" href="main.css">
     <script type='text/javascript' src='js/overlay.js'></script>
     <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
-    <script src='https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js'></script>
+    <script src='https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js'></script> <!--this i think is the problem. (it 100% makes everything shaky and gross) problem with that: this makes the images work ;-;-->
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <script src="js/aframe.min.js"></script>
     <title>GCU AR Tour</title>
 </head>
 
@@ -57,7 +59,7 @@ September 2nd, 2022
 
     <a-scene vr-mode-ui="enabled: false;"
              renderer='antialias: true; alpha: true; precision: medium;'
-             embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: true;'>
+             embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
 
         <!--Declare assets here: differentiated by ID-->
         <a-assets>
@@ -82,6 +84,12 @@ September 2nd, 2022
         shirt: good, but must be up close for recognition
         imagetest: good tracking with many features, but has a hard time deciding where to put the video
         -->
+        <a-marker type="pattern" url="assets/oldPatterns/hiro.patt">
+            <a-box position="0 0.5 0"
+                   material="color: red; transparent: true; opacity: 0.50;">
+            </a-box>
+        </a-marker>
+
         <a-nft videohandler
                type='nft' url='assets/3D_Printer'
                smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5" crossorigin="anonymous">
@@ -95,7 +103,7 @@ September 2nd, 2022
             </a-video>
         </a-nft>
 
-       <a-nft videohandler
+        <a-nft videohandler
                type='nft' url='assets/Drill'
                smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5" crossorigin="anonymous">
             <a-video src="#vid2"
