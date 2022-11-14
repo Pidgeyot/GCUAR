@@ -57,7 +57,7 @@ September 2nd, 2022
 
     <a-scene vr-mode-ui="enabled: false;"
              renderer='antialias: true; alpha: true; precision: medium;'
-             embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;'>
+             embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: true;'>
 
         <!--Declare assets here: differentiated by ID-->
         <a-assets>
@@ -95,7 +95,7 @@ September 2nd, 2022
             </a-video>
         </a-nft>
 
-        <a-nft videohandler
+       <a-nft videohandler
                type='nft' url='assets/Drill'
                smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5" crossorigin="anonymous">
             <a-video src="#vid2"
@@ -139,53 +139,8 @@ September 2nd, 2022
                smoothThreshold="5"
                crossorigin="anonymous">
 
-            <a-entity gltf-model="antelope/antelope.gltf"
-                      scale="500 500 500"
-                      position="1000 1500 100">
-                <!--"Paula the Antelope" (https://skfb.ly/6B9pO) by Diana Varro is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).-->
-            </a-entity>
-        </a-nft>
-
-        <a-nft type="nft"
-               url="assets/lopespatt"
-               smooth="true"
-               smoothCount="10"
-               smoothTolerance=".01"
-               smoothThreshold="5"
-               crossorigin="anonymous">
-
-            <a-entity gltf-model="antelope/antelope.gltf"
-                      scale="500 500 500"
-                      position="1000 1500 100">
-                <!--"Paula the Antelope" (https://skfb.ly/6B9pO) by Diana Varro is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).-->
-            </a-entity>
-        </a-nft>
-
-        <a-nft type="nft"
-               url="assets/oldPatterns/logo"
-               smooth="true"
-               smoothCount="10"
-               smoothTolerance=".01"
-               smoothThreshold="5"
-               crossorigin="anonymous">
-
             <a-entity obj-model="obj: url(assets/GCUHP.obj);
                       mtl: url(assets/GCUHP.mtl)"
-                      scale="10 10 10"
-                      position="0 0 0">
-            </a-entity>
-        </a-nft>
-
-        <a-nft type="nft"
-               url="assets/oldPatterns/hiro"
-               smooth="true"
-               smoothCount="10"
-               smoothTolerance=".01"
-               smoothThreshold="5"
-               crossorigin="anonymous">
-
-            <a-entity obj-model="obj: url(assets/GCUO.obj); 
-                      mtl: url(assets/GCUO.mtl)"
                       scale="10 10 10"
                       position="0 0 0">
             </a-entity>
