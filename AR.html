@@ -11,7 +11,6 @@ September 2nd, 2022
     <link rel="stylesheet" href="main.css">
     <script type='text/javascript' src='js/overlay.js'></script>
     <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
-    <script src='https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js'></script> <!--this i think is the problem. (it 100% makes everything shaky and gross) problem with that: this makes the images work ;-;-->
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
     <script src="js/aframe.min.js"></script>
     <title>GCU AR Tour</title>
@@ -20,11 +19,9 @@ September 2nd, 2022
 <body style='margin : 0px; overflow: hidden;'>
 
     <div id="debug">AR</div>
-    <div class="arjs-loader">
-        <!--Make this a cute lopes loading animation-->
-        <div>Loading, please wait...</div>
-    </div>
-
+    <!--<div class="arjs-loader">
+    <div>Loading, please wait...</div>
+    </div>-->
     <!--Using AR.js tutorial: Displays video using image tracking-->
     <script>
 
@@ -57,6 +54,8 @@ September 2nd, 2022
 
     </script>
 
+    <!-- set detectionMode and matrixCodeType to enable barcode marker detection and custom pattern files -->
+    <!--<a-scene embedded vr-mode-ui="enabled: false;" arjs="debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">-->
     <a-scene vr-mode-ui="enabled: false;"
              renderer='antialias: true; alpha: true; precision: medium;'
              embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
@@ -76,108 +75,61 @@ September 2nd, 2022
             </video>
         </a-assets>
 
-        <!--Set up pattern and corresponding content here: Use video ID for identification-->
-        <!--Markers are best when they have different identafiable features to create detection
-    ex: hiro: too little color
-        lopes: good
-        logo: good color and identifiable feature
-        shirt: good, but must be up close for recognition
-        imagetest: good tracking with many features, but has a hard time deciding where to put the video
-        -->
-        <a-marker type="pattern" url="assets/oldPatterns/hiro.patt">
-            <a-box position="0 0.5 0"
+        <a-marker videohandler type="pattern" url="assets/oldPatterns/hiro.patt">
+            <!--<a-box position="0 0.5 0"
                    material="color: red; transparent: true; opacity: 0.50;">
-            </a-box>
-        </a-marker>
+            </a-box>-->
 
-        <a-nft videohandler
-               type='nft' url='assets/3D_Printer'
-               smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5" crossorigin="anonymous">
             <a-video src="#vid1"
                      class="content"
-                     scale="5 5 0"
-                     position='500 -500 -100'
+                     scale=".1 .1 .1"
+                     position='0 0 0'
                      rotation='90 0 180'
-                     width='300'
-                     height='175'>
+                     width='10'
+                     height='5'>
             </a-video>
-        </a-nft>
 
-        <a-nft videohandler
-               type='nft' url='assets/Drill'
-               smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5" crossorigin="anonymous">
+        </a-marker>
+
+        <a-marker videohandler type="pattern" url="assets/lopestest.patt">
+            <!--<a-box position="0 0.5 0"
+                   material="color: red; transparent: true; opacity: 0.50;">
+            </a-box>-->
             <a-video src="#vid2"
                      class="content"
-                     position='200 200 -100'
+                     scale=".1 .1 .1"
+                     position='0 0 0'
                      rotation='90 0 180'
-                     width='300'
-                     height='175'>
+                     width='10'
+                     height='5'>
             </a-video>
-        </a-nft>
 
-        <a-nft videohandler
-               type='nft' url='assets/ENG_05'
-               smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5" crossorigin="anonymous">
-            <a-video src="#vid3"
-                     class="content"
-                     position='200 200 -100'
-                     rotation='90 0 180'
-                     width='300'
-                     height='175'>
-            </a-video>
-        </a-nft>
-
-        <a-nft videohandler
-               type='nft' url='assets/Gear'
-               smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5" crossorigin="anonymous">
-            <a-video src="#vid4"
-                     class="content"
-                     position='1000 1000 -100'
-                     rotation='90 0 180'
-                     width='300'
-                     height='175'>
-            </a-video>
-        </a-nft>
-
-        <a-nft type="nft"
-               url="assets/lopespatt"
-               smooth="true"
-               smoothCount="10"
-               smoothTolerance=".01"
-               smoothThreshold="5"
-               crossorigin="anonymous">
-
-            <a-entity obj-model="obj: url(assets/GCUHP.obj);
-                      mtl: url(assets/GCUHP.mtl)"
-                      scale="10 10 10"
-                      position="0 0 0">
-            </a-entity>
-        </a-nft>
+        </a-marker>
 
         <a-entity camera></a-entity>
+
     </a-scene>
 
+    <!-- Overlay pulled from W3Schools https://www.w3schools.com/howto/howto_css_overlay.asp -->
+    <!-- The overlay-->
+    <div id="nav" class="overlay">
 
-        <!-- Overlay pulled from W3Schools https://www.w3schools.com/howto/howto_css_overlay.asp -->
-        <!-- The overlay-->
-        <div id="nav" class="overlay">
+        <!-- Overlay content -->
+        <nav class="overlay-content">
+            <a href="tutorial.html">How It Works</a>
+            <a href="checklist.html">Checklist</a>
+            <a href="https://www.gcu.edu/">GCU School Site</a>
+        </nav>
 
-            <!-- Overlay content -->
-            <nav class="overlay-content">
-                <a href="tutorial.html">How It Works</a>
-                <a href="checklist.html">Checklist</a>
-                <a href="https://www.gcu.edu/">GCU School Site</a>
-            </nav>
+        <!-- Button to close the overlay navigation -->
+        <button type="button" href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</button>
 
-            <!-- Button to close the overlay navigation -->
-            <button type="button" href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</button>
+    </div>
 
-        </div>
-
-        <footer>
-            <!-- Button to open the overlay navigation -->
-            <button type="button" onclick="openNav()" id="ar-open">&#9776;</button>
-        </footer>
+    <footer>
+        <!-- Button to open the overlay navigation -->
+        <button type="button" onclick="openNav()" id="ar-open">&#9776;</button>
+    </footer>
 
 </body>
 </html>

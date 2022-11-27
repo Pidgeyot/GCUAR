@@ -5,6 +5,7 @@
     <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
     <script src="js/aframe.min.js"></script>
+    <script src='https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js'></script> <!--this i think is the problem. (it 100% makes everything shaky and gross) problem with that: this makes the images work ;-;-->
 </head>
 <body style="margin: 0px; overflow: hidden;">
 
@@ -40,8 +41,6 @@
 
     </script>
 
-    <!-- set detectionMode and matrixCodeType to enable barcode marker detection and custom pattern files -->
-    <!--<a-scene embedded vr-mode-ui="enabled: false;" arjs="debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">-->
     <a-scene vr-mode-ui="enabled: false;"
              renderer='antialias: true; alpha: true; precision: medium;'
              embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
@@ -53,42 +52,95 @@
 
             <video src="https://player.vimeo.com/external/427115322.hd.mp4?s=94c25ae525c46f97e670386175b6aee0ecc03f8f&profile_id=174" preload="auto" id="vid2" response-type="arraybuffer" loop webkit-playsinline playsinline crossorigin="anonymous">
             </video>
+
+            <video src="https://player.vimeo.com/external/385493799.hd.mp4?s=b3227481a20c30bb82c92123a7843c330f6c8dc4&profile_id=174" preload="auto" id="vid3" response-type="arraybuffer" loop webkit-playsinline playsinline crossorigin="anonymous">
+            </video>
+
+            <video src="https://player.vimeo.com/external/427115300.sd.mp4?s=e238034d38e23a5193176d101f60703e0633ce6e&profile_id=165" preload="auto" id="vid4" response-type="arraybuffer" loop webkit-playsinline playsinline crossorigin="anonymous">
+            </video>
         </a-assets>
 
-        <a-marker videohandler type="pattern" url="assets/oldPatterns/hiro.patt">
-            <!--<a-box position="0 0.5 0"
+        <!--Set up pattern and corresponding content here: Use video ID for identification-->
+        <!--Markers are best when they have different identafiable features to create detection
+    ex: hiro: too little color
+        lopes: good
+        logo: good color and identifiable feature
+        shirt: good, but must be up close for recognition
+        imagetest: good tracking with many features, but has a hard time deciding where to put the video
+        -->
+        <a-marker type="pattern" url="assets/oldPatterns/hiro.patt">
+            <a-box position="0 0.5 0"
                    material="color: red; transparent: true; opacity: 0.50;">
-            </a-box>-->
+            </a-box>
+        </a-marker>
 
+        <a-nft videohandler
+               type='nft' url='assets/3D_Printer'
+               smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5" crossorigin="anonymous">
             <a-video src="#vid1"
                      class="content"
-                     scale=".1 .1 .1"
-                     position='0 0 0'
+                     scale="5 5 0"
+                     position='500 -500 -100'
                      rotation='90 0 180'
-                     width='10'
-                     height='5'>
+                     width='300'
+                     height='175'>
             </a-video>
+        </a-nft>
 
-        </a-marker>
-
-        <a-marker videohandler type="pattern" url="assets/lopes.patt">
-            <!--<a-box position="0 0.5 0"
-                   material="color: red; transparent: true; opacity: 0.50;">
-            </a-box>-->
+        <a-nft videohandler
+               type='nft' url='assets/Drill'
+               smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5" crossorigin="anonymous">
             <a-video src="#vid2"
                      class="content"
-                     scale=".1 .1 .1"
-                     position='0 0 0'
+                     position='200 200 -100'
                      rotation='90 0 180'
-                     width='10'
-                     height='5'>
+                     width='300'
+                     height='175'>
             </a-video>
+        </a-nft>
 
-        </a-marker>
+        <a-nft videohandler
+               type='nft' url='assets/ENG_05'
+               smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5" crossorigin="anonymous">
+            <a-video src="#vid3"
+                     class="content"
+                     position='200 200 -100'
+                     rotation='90 0 180'
+                     width='300'
+                     height='175'>
+            </a-video>
+        </a-nft>
+
+        <a-nft videohandler
+               type='nft' url='assets/Gear'
+               smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5" crossorigin="anonymous">
+            <a-video src="#vid4"
+                     class="content"
+                     position='1000 1000 -100'
+                     rotation='90 0 180'
+                     width='300'
+                     height='175'>
+            </a-video>
+        </a-nft>
+
+        <a-nft type="nft"
+               url="assets/lopespatt"
+               smooth="true"
+               smoothCount="10"
+               smoothTolerance=".01"
+               smoothThreshold="5"
+               crossorigin="anonymous">
+
+            <a-entity obj-model="obj: url(assets/GCUHP.obj);
+                      mtl: url(assets/GCUHP.mtl)"
+                      scale="10 10 10"
+                      position="0 0 0">
+            </a-entity>
+        </a-nft>
 
         <a-entity camera></a-entity>
-
     </a-scene>
+
 </body>
 </html>
 
