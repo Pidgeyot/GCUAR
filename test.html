@@ -3,10 +3,9 @@
 <head>
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
     <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-    <script src="js/aframe.min.js"></script>
     <script src='https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js'></script> <!--this i think is the problem. (it 100% makes everything shaky and gross) problem with that: this makes the images work ;-;-->
 </head>
+
 <body style="margin: 0px; overflow: hidden;">
 
     <!--Using AR.js tutorial: Displays video using image tracking-->
@@ -68,82 +67,83 @@
         shirt: good, but must be up close for recognition
         imagetest: good tracking with many features, but has a hard time deciding where to put the video
         -->
-        <a-marker type="pattern" url="assets/oldPatterns/hiro.patt">
-            <a-box position="0 0.5 0"
-                   material="color: red; transparent: true; opacity: 0.50;">
-            </a-box>
-        </a-marker>
 
-        <a-nft videohandler
-               type='nft' url='assets/3D_Printer'
-               smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5" crossorigin="anonymous">
-            <a-video src="#vid1"
-                     class="content"
-                     scale="5 5 0"
-                     position='500 -500 -100'
-                     rotation='90 0 180'
-                     width='300'
-                     height='175'>
-            </a-video>
-        </a-nft>
+        <!--<a-marker type="pattern" url="assets/oldPatterns/hiro.patt">
+                <a-box position="0 0.5 0"
+                       material="color: red; transparent: true; opacity: 0.50;">
+                </a-box>
+            </a-marker>-->
 
-        <a-nft videohandler
-               type='nft' url='assets/Drill'
-               smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5" crossorigin="anonymous">
-            <a-video src="#vid2"
-                     class="content"
-                     position='200 200 -100'
-                     rotation='90 0 180'
-                     width='300'
-                     height='175'>
-            </a-video>
-        </a-nft>
+            <a-nft videohandler
+                   type='nft' url='assets/3D_Printer'
+                   smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5" crossorigin="anonymous">
+                <a-video src="#vid1"
+                         class="content"
+                         scale="5 5 0"
+                         position='500 -500 -100'
+                         rotation='90 0 180'
+                         width='300'
+                         height='175'>
+                </a-video>
+            </a-nft>
 
-        <a-nft videohandler
-               type='nft' url='assets/ENG_05'
-               smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5" crossorigin="anonymous">
-            <a-video src="#vid3"
-                     class="content"
-                     position='200 200 -100'
-                     rotation='90 0 180'
-                     width='300'
-                     height='175'>
-            </a-video>
-        </a-nft>
+            <a-nft videohandler
+                   type='nft' url='assets/Drill'
+                   smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5" crossorigin="anonymous">
+                <a-video src="#vid2"
+                         class="content"
+                         position='200 200 -100'
+                         rotation='90 0 180'
+                         width='300'
+                         height='175'>
+                </a-video>
+            </a-nft>
 
-        <a-nft videohandler
-               type='nft' url='assets/Gear'
-               smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5" crossorigin="anonymous">
-            <a-video src="#vid4"
-                     class="content"
-                     position='1000 1000 -100'
-                     rotation='90 0 180'
-                     width='300'
-                     height='175'>
-            </a-video>
-        </a-nft>
+            <a-nft videohandler
+                   type='nft' url='assets/ENG_05'
+                   smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5" crossorigin="anonymous">
+                <a-video src="#vid3"
+                         class="content"
+                         position='200 200 -100'
+                         rotation='90 0 180'
+                         width='300'
+                         height='175'>
+                </a-video>
+            </a-nft>
 
-        <a-nft type="nft"
-               url="assets/lopespatt"
-               smooth="true"
-               smoothCount="10"
-               smoothTolerance=".01"
-               smoothThreshold="5"
-               crossorigin="anonymous">
+            <a-nft videohandler
+                   type='nft' url='assets/Gear'
+                   smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5" crossorigin="anonymous">
+                <a-video src="#vid4"
+                         class="content"
+                         position='1000 1000 -100'
+                         rotation='90 0 180'
+                         width='300'
+                         height='175'>
+                </a-video>
+            </a-nft>
 
-            <a-entity obj-model="obj: url(assets/GCUHP.obj);
-                      mtl: url(assets/GCUHP.mtl)"
-                      scale="10 10 10"
-                      position="0 0 0">
-            </a-entity>
-        </a-nft>
+            <a-nft type="nft"
+                   url="assets/lopespatt"
+                   smooth="true"
+                   smoothCount="10"
+                   smoothTolerance=".01"
+                   smoothThreshold="5"
+                   crossorigin="anonymous">
 
-        <a-entity camera></a-entity>
-    </a-scene>
+                <a-entity obj-model="obj: url(assets/GCUHP.obj);
+                          mtl: url(assets/GCUHP.mtl)"
+                          scale="10 10 10"
+                          position="0 0 0">
+                </a-entity>
+            </a-nft>
 
-</body>
-</html>
+            <a-entity camera></a-entity>
+        </a-scene>
 
-<script>
-    //this page works on mobile. this means something in the AR html is creating the issue, not a hosting problem.
-</script>
+    </body>
+    </html>
+
+    <script>
+        //this page works on mobile. this means something in the AR html is creating the issue, not a hosting problem.
+    </script>
