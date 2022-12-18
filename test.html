@@ -3,7 +3,7 @@
 <head>
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
     <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
-    <script src='https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js'></script> <!--this i think is the problem. (it 100% makes everything shaky and gross) problem with that: this makes the images work ;-;-->
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>  
 </head>
 
 <body style="margin: 0px; overflow: hidden;">
@@ -14,22 +14,22 @@
         //this section makes the video play once the marker is found\
 
         //register the function to videohandler and initialize the function
-        AFRAME.registerComponent('videohandler', {
+        AFRAME.registerComponent("videohandler", {
             init: function playvideo() {
                 //set marker to this.element
                 var marker = this.el;
                 //get the src of the a-video (classed as content)
-                var tag = marker.querySelector(".content").getAttribute('src');
+                var tag = marker.querySelector(".content").getAttribute("src");
                 //this.vid is equal to the element with the id of var tag
                 this.vid = document.querySelector(tag);
 
                 //add listener event to the marker: video is played when its found
-                marker.addEventListener('markerFound', function () {
+                marker.addEventListener("markerFound", function () {
                     this.vid.play();
                 }.bind(this));
 
                 //add listener event to the marker: video is stopped and reset when its lost
-                marker.addEventListener('markerLost', function () {
+                marker.addEventListener("markerLost", function () {
                     this.vid.pause();
                     this.vid.currentTime = 0;
                 }.bind(this));
@@ -41,8 +41,8 @@
     </script>
 
     <a-scene vr-mode-ui="enabled: false;"
-             renderer='antialias: true; alpha: true; precision: medium;'
-             embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
+             renderer="antialias: true; alpha: true; precision: medium;"
+             embedded arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
 
         <!--Declare assets here: differentiated by ID-->
         <a-assets>
@@ -60,86 +60,83 @@
         </a-assets>
 
         <!--Set up pattern and corresponding content here: Use video ID for identification-->
-        <!--Markers are best when they have different identafiable features to create detection
-    ex: hiro: too little color
-        lopes: good
-        logo: good color and identifiable feature
-        shirt: good, but must be up close for recognition
-        imagetest: good tracking with many features, but has a hard time deciding where to put the video
-        -->
+        <!--Markers are best when they have different identafiable features to create detection-->
+    
+       
+        <a-nft videohandler
+            type="nft" url="assets/3D_Printer"
+            smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5" crossorigin="anonymous">
 
-        <!--<a-marker type="pattern" url="assets/oldPatterns/hiro.patt">
-                <a-box position="0 0.5 0"
-                       material="color: red; transparent: true; opacity: 0.50;">
-                </a-box>
-            </a-marker>-->
+         <a-video src="#vid1"
+                  class="content"
+                  scale="5 5 0"
+                  position="500 -500 -100"
+                  rotation="90 0 180"
+                  width="300"
+                  height="175">
+         </a-video>
+        </a-nft>
 
-            <a-nft videohandler
-                   type='nft' url='assets/3D_Printer'
-                   smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5" crossorigin="anonymous">
-                <a-video src="#vid1"
-                         class="content"
-                         scale="5 5 0"
-                         position='500 -500 -100'
-                         rotation='90 0 180'
-                         width='300'
-                         height='175'>
-                </a-video>
-            </a-nft>
+        <a-nft typeof="nft" url="assets/3D_Printer">
+            <a-box position="0 0.5 0"
+                   material="color: red; transparent: true; opacity: 0.50;">
+            </a-box>
+        </a-nft>
 
-            <a-nft videohandler
-                   type='nft' url='assets/Drill'
-                   smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5" crossorigin="anonymous">
-                <a-video src="#vid2"
-                         class="content"
-                         position='200 200 -100'
-                         rotation='90 0 180'
-                         width='300'
-                         height='175'>
-                </a-video>
-            </a-nft>
+        <a-nft videohandler
+               type="nft" url="assets/Drill"
+               smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5" crossorigin="anonymous">
+            <a-video src="#vid2"
+                     class="content"
+                     position="200 200 -100"
+                     rotation="90 0 180"
+                     width="300"
+                     height="175">
+            </a-video>
+        </a-nft>
 
-            <a-nft videohandler
-                   type='nft' url='assets/ENG_05'
-                   smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5" crossorigin="anonymous">
-                <a-video src="#vid3"
-                         class="content"
-                         position='200 200 -100'
-                         rotation='90 0 180'
-                         width='300'
-                         height='175'>
-                </a-video>
-            </a-nft>
+        <a-nft videohandler
+               type="nft" url="assets/ENG_05"
+               smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5" crossorigin="anonymous">
+            <a-video src="#vid3"
+                     class="content"
+                     position="200 200 -100"
+                     rotation="90 0 180"
+                     width="300"
+                     height="175">
+            </a-video>
+        </a-nft>
 
-            <a-nft videohandler
-                   type='nft' url='assets/Gear'
-                   smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5" crossorigin="anonymous">
-                <a-video src="#vid4"
-                         class="content"
-                         position='1000 1000 -100'
-                         rotation='90 0 180'
-                         width='300'
-                         height='175'>
-                </a-video>
-            </a-nft>
+        <a-nft videohandler
+               type="nft" url="assets/Gear"
+               smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5" crossorigin="anonymous">
+            <a-video src="#vid4"
+                     class="content"
+                     position="1000 1000 -100"
+                     rotation="90 0 180"
+                     width="300"
+                     height="175">
+            </a-video>
+        </a-nft>
 
-            <a-nft type="nft"
-                   url="assets/lopespatt"
-                   smooth="true"
-                   smoothCount="10"
-                   smoothTolerance=".01"
-                   smoothThreshold="5"
-                   crossorigin="anonymous">
+        <a-nft type="nft"
+               url="assets/lopespatt"
+               smooth="true"
+               smoothCount="10"
+               smoothTolerance=".01"
+               smoothThreshold="5"
+               crossorigin="anonymous">
 
-                <a-entity obj-model="obj: url(assets/GCUHP.obj);
-                          mtl: url(assets/GCUHP.mtl)"
-                          scale="10 10 10"
-                          position="0 0 0">
-                </a-entity>
-            </a-nft>
 
-            <a-entity camera></a-entity>
-        </a-scene>
+        <a-entity obj-model="obj: url(assets/GCUHP.obj);
+        mtl: url(assets/GCUHP.mtl)"
+        scale="10 10 10"
+        position="0 0 0">
+         </a-entity>
+        </a-nft>
+
+        <a-entity camera></a-entity>
+    </a-scene>
 
     </body>
     </html>
