@@ -5,147 +5,136 @@ Made by Paige Mabbitt
 September 2nd, 2022
 -->
 <html lang="en">
-<head>
+  <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/x-icon" href="lopespatt.png">
-    <link rel="stylesheet" href="main.css">
-    <script type='text/javascript' src='js/overlay.js'></script>
+    <link rel="icon" type="image/x-icon" href="lopespatt.png" />
+    <link rel="stylesheet" href="main.css" />
+    <script type="text/javascript" src="js/overlay.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-    <!--<script src="js/aframe.min.js"></script>-->
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
     <title>GCU AR Tour</title>
-</head>
+  </head>
 
-<body style='margin : 0px; overflow: hidden;'>
-
+  <body style="margin: 0px; overflow: hidden">
     <div id="debug">AR</div>
-    <!--<div class="arjs-loader">
-    <div>Loading, please wait...</div>
-    </div>-->
+    <div class="arjs-loader">
+      <!--Make this a cute lopes loading animation-->
+      <div>Loading, please wait...</div>
+    </div>
+
     <!--Using AR.js tutorial: Displays video using image tracking-->
     <script>
+      //this section makes the video play once the marker is found\
 
-        //this section makes the video play once the marker is found\
+      //register the function to videohandler and initialize the function
 
-        //register the function to videohandler and initialize the function
-        AFRAME.registerComponent('videohandler', {
-            init: function playvideo() {
-                //set marker to this.element
-                var marker = this.el;
-                //get the src of the a-video (classed as content)
-                var tag = marker.querySelector(".content").getAttribute('src');
-                //this.vid is equal to the element with the id of var tag
-                this.vid = document.querySelector(tag);
+      //this needs to be changed to play from a button instead of onload
+      AFRAME.registerComponent("videohandler", {
+        init: function playvideo() {
+          //set marker to this.element
+          var marker = this.el;
+          //get the src of the a-video (classed as content)
+          //(finds element within the marker that has class of 'content' and gets the src attribute)
+          var tag = marker.querySelector(".content").getAttribute("src");
+          //this.vid is equal to the element with the id of var tag
+          var vid = document.querySelector(tag); 
+          //used to be a this instead of var. (this was also attached to other references of video) this may affect multiple videos
+          
+          var button = document.createElement("button");
+              button.innerHTML = "Play Video";
+              button.setAttribute("id", tag);
+              console.log(button);
+          
+          //add listener event to the marker: video is played when its found
+          marker.addEventListener(
+            "markerFound", 
+            //!! This needs to be changed to be a user button input instead of just when marker found !!
+            //button should be added once marker is detected, then video played once button is pressed   
+            function () {
+              document.querySelector('footer').prepend(button);
+              button.addEventListener("click", function(){vid.play();});              
+            }.bind(this)
+          ); 
 
-                //add listener event to the marker: video is played when its found
-                marker.addEventListener('markerFound', function () {
-                    this.vid.play();
-                }.bind(this));
-
-                //add listener event to the marker: video is stopped and reset when its lost
-                marker.addEventListener('markerLost', function () {
-                    this.vid.pause();
-                    this.vid.currentTime = 0;
-                }.bind(this));
-            }
-        });
-        //load script on window load
-        window.addEventListener("load", playvideo(), false);
-
+          //add listener event to the marker: video is stopped and reset when its lost
+          marker.addEventListener(
+            "markerLost",
+            function () {
+              //button also needs to disapear when marker lost 
+              button.remove();
+              vid.pause();
+              vid.currentTime = 0;
+            }.bind(this)
+          );
+             
+        },
+      });
+      //load script on window load
+      window.addEventListener("load", playvideo(), false);
     </script>
 
-    <!-- set detectionMode and matrixCodeType to enable barcode marker detection and custom pattern files -->
-    <!--<a-scene embedded vr-mode-ui="enabled: false;" arjs="debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">-->
-    <a-scene vr-mode-ui="enabled: false;"
-             renderer='antialias: true; alpha: true; precision: medium;'
-             embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
+    <a-scene
+      vr-mode-ui="enabled: false;"
+      renderer="antialias: true; alpha: true; precision: medium;"
+      embedded
+      arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
+    >
+      <a-assets>
+        <video src="assets/vids/3DPrinterVideo.mp4" preload="auto" id="vid" response-type="arraybuffer" loop crossorigin webkit-playsinline playsinline></video>
+        <video src="assets/vids/DrillVideo.mp4" preload="auto" id="vid2" response-type="arraybuffer" loop crossorigin webkit-playsinline playsinline></video>
+      </a-assets>
 
-        <!--Declare assets here: differentiated by ID-->
-        <a-assets>
-            <video muted src="https://player.vimeo.com/external/427115247.hd.mp4?s=568deebe927fe2ac1adc35cb876d65632663a380&profile_id=174" preload="auto" id="vid1" response-type="arraybuffer" loop webkit-playsinline playsinline crossorigin="anonymous">
-            </video>
-
-            <video src="https://player.vimeo.com/external/427115322.hd.mp4?s=94c25ae525c46f97e670386175b6aee0ecc03f8f&profile_id=174" preload="auto" id="vid2" response-type="arraybuffer" loop webkit-playsinline playsinline crossorigin="anonymous">
-            </video>
-
-            <video src="https://player.vimeo.com/external/385493799.hd.mp4?s=b3227481a20c30bb82c92123a7843c330f6c8dc4&profile_id=174" preload="auto" id="vid3" response-type="arraybuffer" loop webkit-playsinline playsinline crossorigin="anonymous">
-            </video>
-
-            <video src="https://player.vimeo.com/external/427115300.sd.mp4?s=e238034d38e23a5193176d101f60703e0633ce6e&profile_id=165" preload="auto" id="vid4" response-type="arraybuffer" loop webkit-playsinline playsinline crossorigin="anonymous">
-            </video>
-        </a-assets>
-
-        <a-marker videohandler type="pattern" url="assets/lopes.patt">
-        <a-video src="#vid1"
-                 class="content"
-                 scale=".1 .1 .1"
-                 position='0 0 0'
-                 rotation='90 0 180'
-                 width='10'
-                 height='5'>
+      <a-nft videohandler type="nft" url="assets/3D_Printer" smooth="true"  smoothcount="10" smoothtolerance="0.01" smooththreshold="5">
+        <a-video
+          class="content"
+          src="#vid"
+          position="200 600 -500"
+          rotation="90 0 180"
+          width="300"
+          height="175"
+        >
         </a-video>
-    </a-marker>
-
-        <a-marker videohandler type="pattern" url="assets/lopesp.patt">
-            <a-video src="#vid2"
-                     class="content"
-                     scale=".1 .1 .1"
-                     position='0 0 0'
-                     rotation='90 0 180'
-                     width='10'
-                     height='5'>
-            </a-video>
-        </a-marker>
-
-        <a-marker videohandler type="pattern" url="assets/logob.patt">
-            <a-video src="#vid3"
-                     class="content"
-                     scale=".1 .1 .1"
-                     position='0 0 0'
-                     rotation='90 0 180'
-                     width='10'
-                     height='5'>
-            </a-video>
-        </a-marker>
-
-        <a-marker videohandler type="pattern" url="assets/logo.patt">
-            <!--<a-box position="0 0.5 0"
-           material="color: red; transparent: true; opacity: 0.50;">
-    </a-box>-->
-            <a-video src="#vid4"
-                     class="content"
-                     scale=".1 .1 .1"
-                     position='0 0 0'
-                     rotation='90 0 180'
-                     width='10'
-                     height='5'>
-            </a-video>
-        </a-marker>
-
-        <a-entity camera></a-entity>
-
+      </a-nft>
+      
+      <a-nft videohandler type="nft" url="assets/Drill" smooth="true"  smoothcount="10" smoothtolerance="0.01" smooththreshold="5">
+        <a-video
+          class="content"
+          src="#vid2"
+          position="200 600 -500"
+          rotation="90 0 180"
+          width="300"
+          height="175"
+        >
+        </a-video>
+      </a-nft>
+      
+      <a-entity camera></a-entity>
     </a-scene>
 
     <!-- Overlay pulled from W3Schools https://www.w3schools.com/howto/howto_css_overlay.asp -->
-        <!-- The overlay-->
-        <div id="nav" class="overlay">
+    <!-- The overlay-->
+    <div id="nav" class="overlay">
+      <!-- Overlay content -->
+      <nav class="overlay-content">
+        <a href="tutorial.html">How It Works</a>
+        <a href="checklist.html">Checklist</a>
+        <a href="https://www.gcu.edu/">GCU School Site</a>
+      </nav>
 
-            <!-- Overlay content -->
-            <nav class="overlay-content">
-                <a href="tutorial.html">How It Works</a>
-                <a href="checklist.html">Checklist</a>
-                <a href="https://www.gcu.edu/">GCU School Site</a>
-            </nav>
+      <!-- Button to close the overlay navigation -->
+      <button
+        type="button"
+        href="javascript:void(0)"
+        class="closebtn"
+        onclick="closeNav()"
+      >
+        &times;
+      </button>
+    </div>
 
-            <!-- Button to close the overlay navigation -->
-            <button type="button" href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</button>
-
-        </div>
-
-        <footer>
-            <!-- Button to open the overlay navigation -->
-            <button type="button" onclick="openNav()" id="ar-open">&#9776;</button>
-        </footer>
-
-</body>
+    <footer>
+      <!-- Button to open the overlay navigation -->
+      <button type="button" onclick="openNav()" id="ar-open">&#9776;</button>
+    </footer>
+  </body>
 </html>
